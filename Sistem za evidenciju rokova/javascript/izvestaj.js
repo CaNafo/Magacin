@@ -20,6 +20,6 @@ function stampaj(){
     document.getElementById("checkboxKriticni").checked = false;
     document.getElementById("checkboxVraceni").checked = false;
 
-    osveziTabeluProizvoda();
+    osvjeziTabeluProizvoda();
 
 }

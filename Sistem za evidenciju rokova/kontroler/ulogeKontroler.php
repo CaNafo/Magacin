@@ -17,6 +17,5 @@ $jsonArray = json_decode($result,true);
 if($jsonArray!=null)
     foreach($jsonArray as $item) {
         $json = json_decode($item,true);
-        echo "<input type='checkbox' value='".$json['ID']."'>".$json['naziv'];
-        echo "<br>";
+        echo "<input type='checkbox' value='".$json['ID']."'>&nbsp".$json['naziv'].'&nbsp&nbsp';
     }

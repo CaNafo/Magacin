@@ -11,14 +11,14 @@ include ("includes/layouts/navbar.php");
     <div class="container mt-3">
         <div class="input-group mt-3 mb-3">
             <button class="btn btn-primary" style="margin-right: 15px;" onclick="stampaj()">Izvještaj</button>
-            <input type="text" class="form-control" placeholder="Naziv proizvoda" id="searchField"  onkeyup="osveziTabeluProizvoda();">
+            <input type="text" class="form-control" placeholder="Naziv proizvoda" id="searchField"  onkeyup="osvjeziTabeluProizvoda();">
 
             <select class="dropbtn" style="margin-left: 5px;" id="dobavljaci">
                 <?php
                 include 'kontroler/dobavljaci.php';
                 ?>
             </select>
-            <button class="btn-info dropbtn" style="margin-left: 5px;" onclick="zameniSadrzaj('dodajProizvod')">Dodaj novi proizvod</button>
+            <button class="btn-info dropbtn" style="margin-left: 5px;" onclick="zamjeniSadrzaj('dodajProizvod')">Dodaj novi proizvod</button>
         </div>
     </div>
     <div class="container">

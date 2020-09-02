@@ -1,4 +1,4 @@
-function osveziTabeluProizvoda() {
+function osvjeziTabeluProizvoda() {
     var checkBox = document.getElementById("checkboxKriticni");
     var checkBoxVraceni = document.getElementById("checkboxVraceni");
 
@@ -7,7 +7,7 @@ function osveziTabeluProizvoda() {
         xhr.open("GET", "kontroler/proizvodi/prikazKriticnihFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
         xhr.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
-                zameniTabelu(this.responseText);
+                zamjeniTabelu(this.responseText);
             }
         };
         xhr.send();
@@ -16,7 +16,7 @@ function osveziTabeluProizvoda() {
         xhr.open("GET", "kontroler/proizvodi/prikazFiltriranihVracenihProizvoda.php?q=" + document.getElementById("searchField").value, true);
         xhr.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
-                zameniTabelu(this.responseText);
+                zamjeniTabelu(this.responseText);
             }
         };
         xhr.send();
@@ -27,37 +27,37 @@ function osveziTabeluProizvoda() {
        xhr.open("GET", "kontroler/proizvodi/prikazFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
        xhr.onreadystatechange = function (ev) {
            if (this.readyState == 4 && this.status == 200) {
-               zameniTabelu(this.responseText);
+               zamjeniTabelu(this.responseText);
            }
        };
        xhr.send();
    }
 }
 
-function zameniTabelu(odgovor) {
+function zamjeniTabelu(odgovor) {
     var element = document.getElementById("centralniDiv");
     element.innerHTML = odgovor;
 }
 
-function osveziTabeluPoslovnica() {
+function osvjeziTabeluPoslovnica() {
    var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
     xhr.open("GET", "kontroler/poslovnice.php?q="+document.getElementById("pretragaPoslovnica").value, true);
     xhr.onreadystatechange = function (ev) {
         if(this.readyState == 4 && this.status == 200)
         {
-            zameniTabelu(this.responseText);
+            zamjeniTabelu(this.responseText);
         }
     };
     xhr.send();
 }
 
-function osveziTabeluRadnika() {
+function osvjeziTabeluRadnika() {
     var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
     xhr.open("GET", "kontroler/radnici.php?q="+document.getElementById("pretragaRadnika").value, true);
     xhr.onreadystatechange = function (ev) {
         if(this.readyState == 4 && this.status == 200)
         {
-            zameniTabelu(this.responseText);
+            zamjeniTabelu(this.responseText);
         }
     };
     xhr.send();
@@ -70,7 +70,7 @@ function vratiProizvod(id) {
         if(this.readyState == 4 && this.status == 200)
         {
             alert("Uspešno vracen proizvod!");
-            osveziTabeluProizvoda();
+            osvjeziTabeluProizvoda();
         }
     };
     xhr.send();
@@ -83,7 +83,7 @@ function obrisiProizvod(id) {
         if(this.readyState == 4 && this.status == 200)
         {
             alert("Uspešno obrisan proizvod!");
-            osveziTabeluProizvoda();
+            osvjeziTabeluProizvoda();
         }
     };
     xhr.send();
@@ -96,7 +96,7 @@ function obrisiRadnika(id) {
         if(this.readyState == 4 && this.status == 200)
         {
             alert("Uspešno obrisan radnik!");
-            osveziTabeluRadnika();
+            osvjeziTabeluRadnika();
         }
     };
     xhr.send();
@@ -151,7 +151,7 @@ function dodajNovogRadnika() {
             if(this.readyState == 4 && this.status == 200)
             {
                 alert("Uspešno dodat radnik!");
-                osveziTabeluRadnika();
+                window.location.replace("index.php");
             }
         };
         xhr.send();

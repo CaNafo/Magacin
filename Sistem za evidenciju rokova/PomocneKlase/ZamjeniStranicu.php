@@ -16,7 +16,11 @@ switch ($_REQUEST['q']){
         break;
 
     case "listaDobavljaca":
-        echo include('..\pogledi\listaRadnika.php');
+        echo include('..\pogledi\listaDobavljaca.php');
+        break;
+
+    case "dodajRadnika":
+        echo include('..\pogledi\dodajRadnika.php');
         break;
 
     case "dodajProizvod":

@@ -1,12 +1,10 @@
 /* BASIC */
 
-html {
-    background-color: #56baed;
-}
 
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
+    background: url("../slike/loginPozadina.jpg");
 }
 
 a {
@@ -43,7 +41,7 @@ h2 {
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: rgba(211,211,211,0.6);
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -52,15 +50,6 @@ h2 {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
-}
-
-#formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
-    padding: 25px;
-    text-align: center;
-    -webkit-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
 }
 
 
@@ -81,7 +70,7 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
-    background-color: #56baed;
+    background-color: #1E90FF;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -103,7 +92,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-    background-color: #39ace7;
+    background-color: #56baed;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -161,7 +150,7 @@ input[type=text]:focus {
     border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+input[type=text]::placeholder {
     color: #cccccc;
 }
 

@@ -14,14 +14,19 @@ function promjeniSadrzaj(idKliknutogElementa) {
 
     }else if(idKliknutogElementa.toString() == "listaDobavljaca") {
         document.getElementById("index").classList.remove('active');
-        document.getElementById("poslovnice").classList.remove('active');
-        document.getElementById("radnici").classList.remove('active');
+
+        if(document.getElementById("poslovnice") != null)
+            document.getElementById("poslovnice").classList.remove('active');
+
+        if(document.getElementById("radnici") != null)
+            document.getElementById("radnici").classList.remove('active');
+
         document.getElementById("dobavljaci").classList.add('active');
     }
-    zameniSadrzaj(idKliknutogElementa.toString());
+    zamjeniSadrzaj(idKliknutogElementa.toString());
 }
 
-function zameniSadrzaj(id) {
+function zamjeniSadrzaj(id) {
     var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
     xhr.open("GET", "PomocneKlase/ZamjeniStranicu.php?q="+id, true);
     xhr.onreadystatechange = function (ev) {

@@ -15,9 +15,11 @@ include("../includes/layouts/header.php");
     </div>
 
     <form action="../kontroler/prijava.php" method="post">
-      <input type="text" id="username" class="fadeIn second" name="ime" placeholder="Korisničko ime">
-      <input type="password" id="password" class="fadeIn third" name="sifra" placeholder="Lozinka">
-      <input type="submit" class="fadeIn fourth" value="Prijava">
+        <label>Korisničko ime</label><br>
+        <input type="text" id="username" class="fadeIn second" name="ime" placeholder="Korisničko ime"><br>
+        <label>Lozinka</label><br>
+        <input type="password" id="password" class="fadeIn third" name="sifra" placeholder="Lozinka">
+        <input type="submit" class="fadeIn fourth" value="Prijava">
     </form>
 
     <div id="formFooter">
