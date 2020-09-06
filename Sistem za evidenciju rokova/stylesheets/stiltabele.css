@@ -1,5 +1,6 @@
 body{
     background: url("../slike/pozadina.jpg");
+    background-size:cover;
 }
 #sadrzajStranice{
 

@@ -1,6 +1,7 @@
 <?php
 include("../includes/session.php");
 include "../PomocneKlase/ApiPoziv.php";
+include "../PomocneKlase/ApiReferenca.php";
 if(
     isset($_REQUEST['ime']) and
     isset($_REQUEST['sifra'])
@@ -9,7 +10,7 @@ if(
         "sifra" => $_REQUEST['sifra']);
 
     $result = ApiPoziv::dajInstancu()->
-                        pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/prijavaServis.php", $data);
+                        pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/prijavaServis.php", $data);
 
     if(json_decode($result,true)['ID']!=null){
         $_SESSION['ime']=json_decode($result,true)['Ime'];

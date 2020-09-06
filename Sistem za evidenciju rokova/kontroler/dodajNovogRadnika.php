@@ -6,6 +6,7 @@
  * Time: 15.32
  */
 include "../PomocneKlase/ApiPoziv.php";
+include "../PomocneKlase/ApiReferenca.php";
 
 if(isset($_REQUEST['ime']) and
     isset($_REQUEST["sifra"]) and
@@ -19,5 +20,5 @@ if(isset($_REQUEST['ime']) and
                         "uloge"=>$_REQUEST['uloge']);
 
     $result = ApiPoziv::dajInstancu()->
-    pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dodajNovogRadnika.php", $parameter);
+    pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dodajNovogRadnika.php", $parameter);
 }

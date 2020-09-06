@@ -6,6 +6,7 @@
  * Time: 15.32
  */
 include "../../PomocneKlase/ApiPoziv.php";
+include "../../PomocneKlase/ApiReferenca.php";
 session_start();
 
 if(isset($_REQUEST['DOB_ID']) and
@@ -19,5 +20,5 @@ if(isset($_REQUEST['DOB_ID']) and
                         "POS_ID"=>$_SESSION['POSLOVNICA_ID']);
 
     $result = ApiPoziv::dajInstancu()->
-    pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dodajNoviProizvod.php", $parameter);
+    pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dodajNoviProizvod.php", $parameter);
 }

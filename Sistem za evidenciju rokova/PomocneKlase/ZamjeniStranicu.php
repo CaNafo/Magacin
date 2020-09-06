@@ -26,4 +26,8 @@ switch ($_REQUEST['q']){
     case "dodajProizvod":
         echo include('..\pogledi\dodajProizvod.php');
         break;
+
+    case "dodajDobavljaca":
+        echo include('..\pogledi\dodajDobavljaca.php');
+        break;
 }

@@ -7,9 +7,10 @@
  */
 
 require_once "../PomocneKlase/ApiPoziv.php";
+require_once "../PomocneKlase/ApiReferenca.php";
 
 $result = ApiPoziv::dajInstancu()->
-    pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuPoslovnica.php", "");
+    pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuPoslovnica.php", "");
 
 
 $jsonArray = json_decode($result,true);

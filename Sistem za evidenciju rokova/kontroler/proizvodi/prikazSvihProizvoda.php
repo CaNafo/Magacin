@@ -1,7 +1,7 @@
 <?php
 
 $result = ApiPoziv::dajInstancu()->
-pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuProizvoda.php", "");
+pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuProizvoda.php", "");
 
 $jsonArray = json_decode($result,true);
 

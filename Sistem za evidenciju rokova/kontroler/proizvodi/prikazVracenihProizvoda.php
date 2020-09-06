@@ -4,7 +4,7 @@ session_start();
 include "../../privilegije.php";
 
 $result = ApiPoziv::dajInstancu()->
-pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuVracenihProizvoda.php", "");
+pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuVracenihProizvoda.php", "");
 
 $jsonArray = json_decode($result,true);
 

@@ -11,7 +11,7 @@ include "../../privilegije.php";
 $parameter = array("q"=>$_REQUEST['q']);
 
 $result = ApiPoziv::dajInstancu()->
-pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuProizvoda.php", $parameter);
+pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuProizvoda.php", $parameter);
 
 $jsonArray = json_decode($result,true);
 
@@ -49,7 +49,7 @@ if($jsonArray!=null) {
                 if ($dozvola == "brisanje_proizvoda") {
                     echo "<td name='sakrivenaKolona' style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='vratiProizvod(this.id);' href='#' id='" . $json['ID'] . "'>Vrati proizvod</a></td>";
                 }
-            echo "<td name='sakrivenaKolona' style='background-color: transparent; text-align: center;'><button class='btn btn-secondary' id='" . $brojac . "' onclick='otvoriModalniDialog(this.id," . $json['ID'] . ");'>Izmeni</button></td>";
+            echo "<td name='sakrivenaKolona' style='background-color: transparent; text-align: center;'><button class='btn btn-secondary' id='" . $brojac . "' onclick='otvoriModalniDialog(this.id," . $json['ID'] . ");'>Izmjeni</button></td>";
             $brojac++;
             echo "</tr>";
         }

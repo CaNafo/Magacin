@@ -7,6 +7,7 @@
  */
 
 include "../PomocneKlase/ApiPoziv.php";
+include "../PomocneKlase/ApiReferenca.php";
 $parameter;
 
 if(isset($_REQUEST['q']))
@@ -14,10 +15,10 @@ if(isset($_REQUEST['q']))
 
 if($_REQUEST['q']=="listaPoslovnica")
     $result = ApiPoziv::dajInstancu()->
-    pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuPoslovnica.php", "");
+    pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuPoslovnica.php", "");
 else
     $result = ApiPoziv::dajInstancu()->
-    pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuPoslovnica.php", $parameter);
+    pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuPoslovnica.php", $parameter);
 
 $jsonArray = json_decode($result,true);
 

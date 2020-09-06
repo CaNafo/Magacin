@@ -18,7 +18,6 @@ if(isset($_REQUEST['ime']) and
     $stmt->bind_param('ssi', $_REQUEST['ime'], md5($_REQUEST['sifra']), $_REQUEST['poslovnicaID']);
     $stmt->execute();
 
-    echo "radi";
     $jsonArray = json_decode($_REQUEST["uloge"],true);
 
     $result = Konekcija::dajInstancu()->izvrsiUpit(

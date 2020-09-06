@@ -7,7 +7,8 @@
  */
 
 include "../../PomocneKlase/ApiPoziv.php";
+include "../../PomocneKlase/ApiReferenca.php";
 $parameter = array("ID"=>$_REQUEST['q']);
 
 $result = ApiPoziv::dajInstancu()->
-pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/vratiProizvod.php", $parameter);
+pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/vratiProizvod.php", $parameter);

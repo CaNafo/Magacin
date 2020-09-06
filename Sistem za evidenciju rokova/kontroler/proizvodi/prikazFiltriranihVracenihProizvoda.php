@@ -11,7 +11,7 @@ include "../../privilegije.php";
 $parameter = array("q"=>$_REQUEST['q']);
 
 $result = ApiPoziv::dajInstancu()->
-pozoviApiServis("post", "http://localhost/Rokovi/Web%20servisi/dobijListuVracenihProizvoda.php", $parameter);
+pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servisi/dobijListuVracenihProizvoda.php", $parameter);
 
 $jsonArray = json_decode($result,true);
 

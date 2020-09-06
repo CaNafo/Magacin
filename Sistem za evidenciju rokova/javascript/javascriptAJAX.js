@@ -158,6 +158,29 @@ function dodajNovogRadnika() {
     }
 }
 
+function dodajNovogDobavljaca() {
+    var naziv = document.getElementById("nazivDobavljaca");
+    var brojDana = document.getElementById("brojDana");
+
+
+    if(naziv.value.length==0 || brojDana.value.length==0)
+        alert("Morate popuniti sva polja");
+    else
+    {
+        var url = "kontroler/dobavljaci/dodajNovogDobavljaca.php?naziv="+naziv.value+"&brojDana="+brojDana.value;
+        var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function (ev) {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                alert("Uspešno dodat dobavljac!");
+                window.location.replace("index.php");
+            }
+        };
+        xhr.send();
+    }
+}
+
 function izmjeniProizvod() {
 
     var idProizvoda = document.getElementById("idProizvoda");
@@ -166,7 +189,7 @@ function izmjeniProizvod() {
     var nazivProizvoda = document.getElementById("nazivProizvodaModal");
 
     if(rokTrajanja.value.length==0 || nazivProizvoda.value.length==0)
-        alert("Popunite sva polja kako biste izmenili proizvod.");
+        alert("Popunite sva polja kako biste izmjenili proizvod.");
     else
     {
         var url = "kontroler/proizvodi/izmjeniProizvod.php?ID="+idProizvoda.value+"&DOB_ID="+dobavljacID.value+"&naziv="+nazivProizvoda.value+"&datum="+rokTrajanja.value;

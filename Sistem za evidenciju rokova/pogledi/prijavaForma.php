@@ -6,6 +6,7 @@ if(isset($_SESSION['ID']))
 
 include("../includes/layouts/header.php");
 ?>
+<link href = "../stylesheets/stilprijave.css" media="all" rel = "stylesheet" type = "text/css" />
 
 <div class="wrapper fadeInDown">
   <div id="formContent">

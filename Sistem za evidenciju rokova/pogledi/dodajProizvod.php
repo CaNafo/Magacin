@@ -11,6 +11,7 @@
         <select class="dropbtn" style="margin-left: 5px;" id="dobavljaciDodavanje">
             <?php
             include '../PomocneKlase/ApiPoziv.php';
+            include '../PomocneKlase/ApiReferenca.php';
             include  '../kontroler/dobavljaci.php';
             ?>
         </select><br><br>

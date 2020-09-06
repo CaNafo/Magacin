@@ -60,7 +60,7 @@ class PoslovnicaModel
     public function dodajNovogRadnika(RadnikModel $radnik) {
 
     }
-    public function izmeniRadnika(RadnikModel $radnik) {
+    public function izmjeniRadnika(RadnikModel $radnik) {
 
     }
     public function dodajNoviProizvod(ProizvodModel $proizvod) {

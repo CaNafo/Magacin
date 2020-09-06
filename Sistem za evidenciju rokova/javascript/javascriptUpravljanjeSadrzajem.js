@@ -40,6 +40,7 @@ function zamjeniSadrzaj(id) {
                 response = response.substr(0,response.length-1);
             }
 
+            if(element != undefined)
             element.innerHTML = response;
     };
     xhr.send();
@@ -58,6 +59,8 @@ function proizvodiSaKriticnimDatumom() {
         xhr.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
                 var element = document.getElementById("centralniDiv");
+
+                if(element != undefined)
                 element.innerHTML = this.responseText;
             }
         };
@@ -80,6 +83,8 @@ function vraceniProizvodi() {
         xhr.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200)
                 var element = document.getElementById("centralniDiv");
+
+            if(element != undefined)
                 element.innerHTML = this.responseText;
         };
         xhr.send();
