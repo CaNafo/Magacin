@@ -11,6 +11,8 @@ pozoviApiServis("post", ApiReferenca::dajInstancu()->dajReferencu()."Web%20servi
 
 $jsonArray = json_decode($result,true);
 
+echo "<option value='0'>Svi proizvodi</option>";
+
 foreach($jsonArray as $item){
     $json = json_decode($item,true);
     echo "<option value='".$json['ID']."'>".$json['ime']."</option>";

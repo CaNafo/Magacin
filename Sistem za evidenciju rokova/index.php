@@ -13,7 +13,7 @@ include ("includes/layouts/navbar.php");
             <button class="btn btn-primary" style="margin-right: 15px;" onclick="stampaj()">Izvještaj</button>
             <input type="text" class="form-control" placeholder="Naziv proizvoda" id="searchField"  onkeyup="osvjeziTabeluProizvoda();">
 
-            <select class="dropbtn" style="margin-left: 5px;" id="dobavljaci">
+            <select class="dropbtn" style="margin-left: 5px;" id="dobavljaci" onchange="osvjeziTabeluProizvodaPoDobavljacu(this.value, this.innerText);">
                 <?php
                 include 'kontroler/dobavljaci.php';
                 ?>

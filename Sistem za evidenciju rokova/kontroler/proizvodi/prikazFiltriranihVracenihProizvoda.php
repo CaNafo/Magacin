@@ -38,7 +38,7 @@ if($jsonArray!=null)
             echo "<td style='color: red;'>".$json['datumIsteka']."</td>";
         foreach ($privilegije->dobijDozvole() as $dozvola)
             if($dozvola == "brisanje_proizvoda") {
-                echo "<td name='sakrivenaKolona' style='background-color: transparent;'><a class='btn btn-danger' onclick='obrisiProizvod(this.id)' onclick='vratiProizvod(this.id);' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
+                echo "<td name='sakrivenaKolona' style='text-align: center; background-color: transparent;'><a class='btn btn-danger' onclick='obrisiProizvod(this.id)' onclick='vratiProizvod(this.id);' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
             }
         echo "</tr>";
 

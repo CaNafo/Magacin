@@ -34,6 +34,31 @@ function osvjeziTabeluProizvoda() {
    }
 }
 
+function osvjeziTabeluProizvodaPoDobavljacu(dobavljacID, nazivDobavljaca) {
+
+    if(dobavljacID == 0){
+        document.getElementById("naslovZaIzvestaj").innerText = "Izveštaj o svim proizvodima";
+
+        var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+        xhr.open("GET", "kontroler/proizvodi/prikazFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
+        xhr.onreadystatechange = function (ev) {
+            if (this.readyState == 4 && this.status == 200) {
+                zamjeniTabelu(this.responseText);
+            }
+        };
+        xhr.send();
+    }else {
+        var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+        xhr.open("GET", "kontroler/proizvodi/prikazFiltritanihProizvodaPoDobavljacu.php?q=" + dobavljacID, true);
+        xhr.onreadystatechange = function (ev) {
+            if (this.readyState == 4 && this.status == 200) {
+                zamjeniTabelu(this.responseText);
+            }
+        };
+        xhr.send();
+    }
+}
+
 function zamjeniTabelu(odgovor) {
     var element = document.getElementById("centralniDiv");
     element.innerHTML = odgovor;
@@ -159,15 +184,14 @@ function dodajNovogRadnika() {
 }
 
 function dodajNovogDobavljaca() {
-    var naziv = document.getElementById("nazivDobavljaca");
-    var brojDana = document.getElementById("brojDana");
+    var naziv = document.getElementById("nazivDobavljaca").value;
+    var brojDana = document.getElementById("brojDana").value;
 
-
-    if(naziv.value.length==0 || brojDana.value.length==0)
+    if(naziv.length==0 || brojDana.length==0)
         alert("Morate popuniti sva polja");
     else
     {
-        var url = "kontroler/dobavljaci/dodajNovogDobavljaca.php?naziv="+naziv.value+"&brojDana="+brojDana.value;
+        var url = "kontroler/dobavljaci/dodajNovogDobavljaca.php?naziv="+naziv+"&brojDana="+brojDana;
         var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
         xhr.open("GET", url, true);
         xhr.onreadystatechange = function (ev) {

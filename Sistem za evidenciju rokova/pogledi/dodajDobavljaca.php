@@ -8,7 +8,7 @@
             <input type="text" class="form-control" placeholder="Naziv dobavljača" id="nazivDobavljaca" style="width: 25%; display: inline-block; text-align: center;">
         </div><br>
         <label>Unesite koliko dana prije isteka roka trajanja robe, ovaj dobavljač zahtjeva povratak</label><br>
-        <input type="text" class="form-control" placeholder="Broj dana" id="brojDana" style="width: 25%; display: inline-block; text-align: center;">
+        <input type="number" class="form-control" placeholder="Broj dana" id="brojDana" style="width: 25%; display: inline-block; text-align: center;">
         <br>
         <br>
         <button class="btn-info dropbtn" style="margin-left: 5px;" onclick="dodajNovogDobavljaca();" >Dodaj</button>
