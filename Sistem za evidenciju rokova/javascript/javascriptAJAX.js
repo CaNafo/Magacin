@@ -114,14 +114,32 @@ function obrisiProizvod(id) {
     xhr.send();
 }
 
-function obrisiRadnika(id) {
+function obrisiRadnika(id,imePrijavljanog,imeZaBrisanje) {
+
+    if(imePrijavljanog.toString() == imeZaBrisanje.toString())
+        alert("Ne možete obrisati sebe!");
+    else{
+        var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+        xhr.open("GET", "kontroler/obrisiRadnika.php?q="+id, true);
+        xhr.onreadystatechange = function (ev) {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                alert("Uspešno obrisan radnik!");
+                osvjeziTabeluRadnika();
+            }
+        };
+        xhr.send();
+    }
+}
+
+function obrisiPoslovnicu(id) {
     var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
-    xhr.open("GET", "kontroler/obrisiRadnika.php?q="+id, true);
+    xhr.open("GET", "kontroler/obrisiPoslovnicu.php?q="+id, true);
     xhr.onreadystatechange = function (ev) {
         if(this.readyState == 4 && this.status == 200)
         {
-            alert("Uspešno obrisan radnik!");
-            osvjeziTabeluRadnika();
+            alert("Uspešno obrisana poslovnica!");
+            osvjeziTabeluPoslovnica();
         }
     };
     xhr.send();

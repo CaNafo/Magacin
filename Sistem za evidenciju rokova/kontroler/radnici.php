@@ -5,6 +5,7 @@
  * Date: 8.1.2020.
  * Time: 17.50
  */
+session_start();
 
 require_once "../PomocneKlase/ApiPoziv.php";
 require_once "../PomocneKlase/ApiReferenca.php";
@@ -38,7 +39,7 @@ if($jsonArray!=null)
         foreach ($json['Uloge'] as $uloga)
             echo $uloga."<br>";
         echo "</td>";
-        echo "<td style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='obrisiRadnika(this.id);' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
+        echo "<td style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='obrisiRadnika(this.id,\"$_SESSION[ime]\",\"$json[Ime]\");' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
         echo "</tr>";
     }
 echo "</table>";

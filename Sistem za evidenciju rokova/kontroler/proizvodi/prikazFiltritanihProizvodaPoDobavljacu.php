@@ -47,7 +47,7 @@ if($jsonArray!=null) {
         echo "<td>" . $json['granicaPovratka'] . " dana</td>";
         foreach ($privilegije->dobijDozvole() as $dozvola)
             if ($dozvola == "brisanje_proizvoda") {
-                echo "<td name='sakrivenaKolona' style='background-color: transparent;'><a class='btn btn-warning' onclick='vratiProizvod(this.id);' href='#' id='" . $json['ID'] . "'>Vrati proizvod</a></td>";
+                echo "<td name='sakrivenaKolona' style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='vratiProizvod(this.id);' href='#' id='" . $json['ID'] . "'>Vrati proizvod</a></td>";
             }
         echo "<td name='sakrivenaKolona' style='background-color: transparent; text-align: center;'><button class='btn btn-secondary' id='" . $brojac . "' onclick='otvoriModalniDialog(this.id," . $json['ID'] . ");'>Izmjeni</button></td>";
         $brojac++;

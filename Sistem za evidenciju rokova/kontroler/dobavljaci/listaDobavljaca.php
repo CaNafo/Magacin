@@ -25,6 +25,7 @@ echo "<table>";
     echo "<tr>";
         echo "<td>".$json['ime']."</td>";
         echo "<td>".$json['granica']." dana</td>";
+        echo "<td style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='obrisiDobavljaca(this.id);' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
         echo "</tr>";
     }
     echo "</table>";

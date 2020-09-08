@@ -33,6 +33,7 @@ if($jsonArray!=null)
         echo "<tr>";
         echo "<td>".$json['naziv']."</td>";
         echo "<td>".$json['gradNaziv']."</td>";
+        echo "<td style='background-color: transparent; text-align: center;'><a class='btn btn-warning' onclick='obrisiPoslovnicu(this.id);' href='#' id='" . $json['ID'] . "'>Obriši</a></td>";
         echo "</tr>";
     }
 echo "</table>";
