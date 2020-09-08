@@ -205,6 +205,63 @@ function dodajNovogDobavljaca() {
     }
 }
 
+function dodajNovuPoslovnicu() {
+    var naziv = document.getElementById("nazivPoslovnice").value;
+    var nazivNovogGrada = document.getElementById("noviGrad").value;
+    var gradID = document.getElementById("gradoviDodavanje").value;
+
+    if(nazivNovogGrada.length == 0){
+        if(naziv.length==0 || gradID.length==0)
+            alert("Morate popuniti sva polja");
+        else
+        {
+            var url = "kontroler/dodajNovuPoslovnicu.php?naziv="+naziv+"&gradID="+gradID;
+            var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function (ev) {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                    alert("Uspešno dodata poslovnica!");
+                    window.location.replace("index.php");
+                }
+            };
+            xhr.send();
+        }
+    }
+    else if(provjeriDaLiPostojiGrad(nazivNovogGrada))
+        alert('Grad sa istim imenom već postoji!');
+    else {
+        if(naziv.length==0 || gradID.length==0)
+            alert("Morate popuniti sva polja");
+        else
+        {
+            var url = "kontroler/dodajNovuPoslovnicuIGrad.php?naziv="+naziv+"&nazivGrada="+nazivNovogGrada;
+            var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function (ev) {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                    alert("Uspešno dodata poslovnica!");
+                    window.location.replace("index.php");
+                }
+            };
+            xhr.send();
+        }
+    }
+}
+
+function provjeriDaLiPostojiGrad(nazivGrada) {
+
+    var x = document.getElementById("gradoviDodavanje");
+
+    for (i = 0; i < x.length; i++) {
+        if(x.options[i].text.toLowerCase() == nazivGrada.toLowerCase())
+            return true;
+    }
+
+    return false;
+}
+
 function izmjeniProizvod() {
 
     var idProizvoda = document.getElementById("idProizvoda");

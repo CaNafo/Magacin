@@ -27,7 +27,7 @@ if($result->num_rows>0)
         if($row['GRAD_Naziv']!=null)
             $poslovnica->setGradNaziv($row['GRAD_Naziv']);
         else
-            $poslovnica->setGradNaziv("Grad nije unet");
+            $poslovnica->setGradNaziv("Grad nije unijet");
 
         $json = json_encode( $poslovnica->jsonSerialize());
         $listaPoslovnica[]=$json;

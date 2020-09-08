@@ -34,6 +34,11 @@ class Konekcija
         return static::$konekcija->query($upit);
     }
 
+    public function poslednjiID()
+    {
+        return static::$konekcija->insert_id;
+    }
+
     public function dajKonekciju()
     {
         return static::$konekcija;

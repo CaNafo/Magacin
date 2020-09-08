@@ -30,4 +30,7 @@ switch ($_REQUEST['q']){
     case "dodajDobavljaca":
         echo include('..\pogledi\dodajDobavljaca.php');
         break;
+    case "dodajPoslovnicu":
+        echo include('..\pogledi\dodajPoslovnicu.php');
+        break;
 }

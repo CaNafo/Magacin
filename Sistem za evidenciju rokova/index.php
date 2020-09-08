@@ -37,7 +37,7 @@ include ("includes/layouts/navbar.php");
 <div id="modalDialog" class="modal">
 
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content"  style="width: 50% !important;">
         <div class="modal-header">
             <h2>Izmjeni proizvod</h2>
             <span class="close">&times;</span>
