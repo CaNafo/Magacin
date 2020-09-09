@@ -12,7 +12,7 @@
             <?php
             include '../PomocneKlase/ApiPoziv.php';
             include '../PomocneKlase/ApiReferenca.php';
-            include  '../kontroler/dobavljaci.php';
+            include  '../kontroler/dobavljaciDodavanje.php';
             ?>
         </select><br><br>
         <label>Unesite rok trajanja proizvoda</label><br>

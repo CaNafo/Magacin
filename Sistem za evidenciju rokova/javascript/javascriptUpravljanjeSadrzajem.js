@@ -22,6 +22,8 @@ function promjeniSadrzaj(idKliknutogElementa) {
             document.getElementById("radnici").classList.remove('active');
 
         document.getElementById("dobavljaci").classList.add('active');
+
+        osvjeziTabeluDobavljaca(); //Kada se učitava stranica prvi put prikazuju se svi dobavljači
     }
     zamjeniSadrzaj(idKliknutogElementa.toString());
 }

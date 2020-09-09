@@ -47,7 +47,7 @@ include ("includes/layouts/navbar.php");
             <input style="text-align: center;" type="text" id="nazivProizvodaModal"><br>
             <select class="btn-warning dropbtn" style="margin-left: 5px;" id="dobavljaciModal">
                 <?php
-                include 'kontroler/dobavljaci.php';
+                include 'kontroler/dobavljaciDodavanje.php';
                 ?>
             </select>
             <input id="rokTrajanjaModal" placeholder="Rok trajanja" data-provide="datepicker" style="margin-left: 5px; text-align: center;">

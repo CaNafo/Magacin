@@ -2,7 +2,7 @@ function osvjeziTabeluProizvoda() {
     var checkBox = document.getElementById("checkboxKriticni");
     var checkBoxVraceni = document.getElementById("checkboxVraceni");
 
-   if(checkBox.checked == true){
+    if (checkBox.checked == true) {
         var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
         xhr.open("GET", "kontroler/proizvodi/prikazKriticnihFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
         xhr.onreadystatechange = function (ev) {
@@ -11,27 +11,29 @@ function osvjeziTabeluProizvoda() {
             }
         };
         xhr.send();
-    }else if(checkBoxVraceni.checked == true){
+    } else if (checkBoxVraceni.checked == true) {
         var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
         xhr.open("GET", "kontroler/proizvodi/prikazFiltriranihVracenihProizvoda.php?q=" + document.getElementById("searchField").value, true);
+        xhr.onreadystatechange = function(ev)
+        {
+            if (this.readyState == 4 && this.status == 200) {
+                zamjeniTabelu(this.responseText);
+            }
+        }
+        ;
+        xhr.send();
+    } else {
+        document.getElementById("naslovZaIzvestaj").innerText = "Izveštaj o svim proizvodima";
+
+        var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+        xhr.open("GET", "kontroler/proizvodi/prikazFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
         xhr.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
                 zamjeniTabelu(this.responseText);
             }
         };
         xhr.send();
-    }else {
-       document.getElementById("naslovZaIzvestaj").innerText = "Izveštaj o svim proizvodima";
-
-       var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
-       xhr.open("GET", "kontroler/proizvodi/prikazFiltritanihProizvoda.php?q=" + document.getElementById("searchField").value, true);
-       xhr.onreadystatechange = function (ev) {
-           if (this.readyState == 4 && this.status == 200) {
-               zamjeniTabelu(this.responseText);
-           }
-       };
-       xhr.send();
-   }
+    }
 }
 
 function osvjeziTabeluProizvodaPoDobavljacu(dobavljacID, nazivDobavljaca) {
@@ -76,6 +78,26 @@ function osvjeziTabeluPoslovnica() {
     xhr.send();
 }
 
+function osvjeziTabeluDobavljaca() {
+
+    //Ako se učitava stranica prvi put elementi su null
+    if(document.getElementById("pretragaDobavljaca") == null){
+        dobavljac = "listaDobavljaca";
+    }else{
+        dobavljac = document.getElementById("pretragaDobavljaca").value;
+    }
+
+    var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+    xhr.open("GET", "kontroler/dobavljaci/listaDobavljaca.php?q="+dobavljac, true);
+    xhr.onreadystatechange = function (ev) {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            zamjeniTabelu(this.responseText);
+        }
+    };
+    xhr.send();
+}
+
 function osvjeziTabeluRadnika() {
     var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
     xhr.open("GET", "kontroler/radnici.php?q="+document.getElementById("pretragaRadnika").value, true);
@@ -109,6 +131,19 @@ function obrisiProizvod(id) {
         {
             alert("Uspešno obrisan proizvod!");
             osvjeziTabeluProizvoda();
+        }
+    };
+    xhr.send();
+}
+
+function obrisiDobavljaca(id) {
+    var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+    xhr.open("GET", "kontroler/dobavljaci/obrisiDobavljaca.php?q="+id, true);
+    xhr.onreadystatechange = function (ev) {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            alert("Uspešno obrisan dobavljač!");
+            osvjeziTabeluDobavljaca();
         }
     };
     xhr.send();

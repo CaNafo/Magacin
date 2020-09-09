@@ -8,8 +8,12 @@
 require 'Konekcija.php';
 require 'ModeliZaWebServise/DobavljacModel.php';
 
+if (!isset($_REQUEST['q']))
     $result = Konekcija::dajInstancu()->izvrsiUpit(
-        "SELECT * FROM dobavljaci");
+        "SELECT * FROM dobavljaci WHERE 1");
+else
+    $result = Konekcija::dajInstancu()->izvrsiUpit(
+        "SELECT * FROM dobavljaci WHERE DOB_Naziv LIKE \"" . $_REQUEST['q'] . "%\"");
 
 $dobavljac = new DobavljacModel();
 $listaDobavljaca = array();

@@ -1,5 +1,0 @@
--Ako si radnik prikaz proizvoda samo poslovnice u kojoj radiš, admin vidi sve
--Dodavanje proizvodjaèa i poslovnice
--Razdvojiti dodavanje od pretrage
--Dodati filter za proizvode sa isteknutim datumom i opciju za brisanje tih proizvoda
--radik sa istim imenom
