@@ -1,0 +1,5 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `dodajNovogRadnika`(IN `ime` VARCHAR(256) CHARSET utf8, IN `sifra` VARCHAR(512) CHARSET utf8, IN `poslovnicaID` INT)
+    NO SQL
+INSERT INTO radnik (`RADNIK_ID`, `POS_ID`, `RADNIK_LOZINKA`, `RADNIK_KorisnickoIme`) VALUES (NULL,poslovnicaID,sifra,ime)$$
+DELIMITER ;

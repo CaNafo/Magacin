@@ -20,7 +20,7 @@ if($jsonArray!=null) {
         echo "<td>" . $json['naziv'] . "</td>";
         echo "<td>" . $json['dobavljacNaziv'] . "</td>";
 
-        $date1 = date_create(date("Y-m-d")); // or your date as well
+        $date1 = date_create(date("Y-m-d"));  // Danasnji datum
         $date2 = date_create($json['datumIsteka']);
         $datumVracanja = date('Y-m-d', strtotime($date2->format('Y-m-d') . ' - ' . $json['granicaPovratka'] . ' days'));
         $datumVracanjaDateObject = date_create($datumVracanja);
@@ -29,7 +29,7 @@ if($jsonArray!=null) {
         if ($diff->days > 5 && $date1 < $datumVracanjaDateObject)
             echo "<td>" . $json['datumIsteka'] . " za " . date_diff($date1, $date2)->days . " dana</td>";
         else
-            if ($date1 < $datumVracanjaDateObject)
+            if ($date1 < $datumVracanjaDateObject) //Poziva se ukoliko je preostalo 5 ili manje dana do isteka povratka
                 echo "<td style='color: #ff6526;'>" . $json['datumIsteka'] . " (još " . $diff->days. " dana za povratak)</td>";
             else
                 echo "<td style='color: red;'>" . $json['datumIsteka'] . " (rok za povratak je istekao)</td>";
